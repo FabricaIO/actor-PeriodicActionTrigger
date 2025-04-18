@@ -1,0 +1,45 @@
+{
+	"name": "actor-PeriodicActionTrigger",
+	"version": "0.5.0",
+	"description": "Triggers an action periodically",
+	"keywords": "Fabrica-IO, actor, trigger",
+	"repository":
+	{
+	  "type": "git",
+	  "url": "https://github.com/FabricaIO/actor-PeriodicActionTrigger.git"
+	},
+	"authors":
+	[
+	  {
+		"name": "Sam Groveman",
+		"email": "SamGroveman@outlook.com",
+		"url": "https://github.com/FabricaIO"
+	  }
+	],
+	"dependencies": {
+		"Action Trigger": "https://github.com/FabricaIO/util-ActionTrigger.git"
+	  },
+	"license": "GPLv3",
+	"homepage": "https://github.com/FabricaIO",
+	"frameworks": "arduino",
+	"platforms": "*",
+	"fabrica-io" : {
+		"name": "PeriodicTrigger",
+		"type": 1,
+		"category": "Trigger",
+		"libname": "PeriodicActionTrigger",
+		"includes": ["PeriodicActionTrigger"],
+		"description": "Triggers an action periodically",
+		"constructor":
+		[
+			[
+				{
+					"name": "Configfile",
+					"type": "String",
+					"description": "The file name to store settings in",
+					"default": "GenericOutput.json"
+				}
+			]
+		]
+	}
+  }
