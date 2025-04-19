@@ -110,7 +110,7 @@ bool PeriodicActionTrigger::setConfig(String config, bool save) {
 		action[1] = chosen.second;
 	}
 	if (save) {
-		if (!saveConfig(config_path, getConfig())) {
+		if (!saveConfig(config_path, config)) {
 			return false;
 		}
 	}
