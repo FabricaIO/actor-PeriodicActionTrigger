@@ -36,12 +36,12 @@ bool PeriodicActionTrigger::begin() {
 std::tuple<bool, String> PeriodicActionTrigger::receiveAction(int action, String payload) {
 	if (action == 0) {
 		if (triggerAction(payload)) {
-			return { true, R"({"True": "Success"})" };
+			return { true, R"({"success": true})" };
 		} else {
-			return { true, R"({"Error": "Could not trigger action"})" };
+			return { true, R"({"success": false})" };
 		}
 	}	
-	return { true, R"({"Error": "Bad command"})" };
+	return { true, R"({"success": false})" };
 }
 
 /// @brief Gets the current config

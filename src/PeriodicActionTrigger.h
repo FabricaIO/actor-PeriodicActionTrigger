@@ -39,7 +39,7 @@ class PeriodicActionTrigger : public Actor, public PeriodicTask {
 
 		bool configureOutput();
 		void runTask(ulong elapsed);
-		bool triggerAction(String payload);
+		virtual bool triggerAction(String payload);
 
 	public:
 		PeriodicActionTrigger(String Name, String configFile = "PeriodicActionTrigger.json");
