@@ -1,5 +1,7 @@
 #include"PeriodicActionTrigger.h"
 
+extern bool POSTSuccess;
+
 /// @brief Creates a periodic action trigger
 /// @param Name The device name
 /// @param configFile Name of the config file to use
@@ -128,5 +130,8 @@ void PeriodicActionTrigger::runTask(ulong elapsed) {
 /// @param payload A payload to pass to the action
 /// @return True on success
 bool PeriodicActionTrigger::triggerAction(String payload) {
-	return trigger.triggerActions({{action[0], {{action[1], payload}}}});
+	if (POSTSuccess) {
+		return trigger.triggerActions({{action[0], {{action[1], payload}}}});
+	}
+	return false;
 }
