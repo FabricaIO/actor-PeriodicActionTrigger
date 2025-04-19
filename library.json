@@ -37,7 +37,7 @@
 					"name": "Configfile",
 					"type": "String",
 					"description": "The file name to store settings in",
-					"default": "GenericOutput.json"
+					"default": "ActionTrigger.json"
 				}
 			]
 		]
