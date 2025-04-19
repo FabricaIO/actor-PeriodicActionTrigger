@@ -20,7 +20,7 @@ bool PeriodicActionTrigger::begin() {
 		// Set defaults
 		task_config.taskName = Description.name.c_str();
 		task_config.taskPeriod = 1000;
-		return saveConfig(config_path, getConfig());
+		return setConfig(getConfig(), true);
 	} else {
 		// Load settings
 		return setConfig(Storage::readFile(config_path), false);
@@ -56,14 +56,18 @@ String PeriodicActionTrigger::getConfig() {
 	// Add all actors/actions to dropdown
 	doc["Action"]["current"] = trigger_config.action;
 	std::map<String, std::map<int, String>> actions = trigger.listAllActions();
+	if (actions.size() > 0) {
 	int i = 0;
-	for (std::map<String, std::map<int, String>>::iterator actor = actions.begin(); actor != actions.end(); actor++) {
-		if (actor->first != Description.name) {
-			for (const auto& action : actor->second) {
-				doc["Action"]["options"][i] = actor->first + ":" + action.second;
-				i++;
+		for (std::map<String, std::map<int, String>>::iterator actor = actions.begin(); actor != actions.end(); actor++) {
+			if (actor->first != Description.name) {
+				for (const auto& action : actor->second) {
+					doc["Action"]["options"][i] = actor->first + ":" + action.second;
+					i++;
+				}
 			}
 		}
+	} else {
+		doc["Action"]["options"][0] = "";
 	}
 
 	doc["Payload"] = trigger_config.payload;
