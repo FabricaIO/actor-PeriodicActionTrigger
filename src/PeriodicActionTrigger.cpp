@@ -20,7 +20,7 @@ bool PeriodicActionTrigger::begin() {
 	// Create settings directory if necessary
 	if (!checkConfig(config_path)) {
 		// Set defaults
-		task_config.taskName = Description.name.c_str();
+		task_config.set_taskName(Description.name.c_str());
 		task_config.taskPeriod = 1000;
 		return setConfig(getConfig(), true);
 	} else {
@@ -97,7 +97,7 @@ bool PeriodicActionTrigger::setConfig(String config, bool save) {
 	}
 	// Assign loaded values
 	Description.name = doc["Name"].as<String>();
-	task_config.taskName = Description.name.c_str();
+	task_config.set_taskName(Description.name.c_str());
 	task_config.taskPeriod = doc["taskPeriod"].as<ulong>();
 	trigger_config.payload = doc["Payload"].as<String>();
 	trigger_config.taskEnabled = doc["taskEnabled"].as<bool>();
