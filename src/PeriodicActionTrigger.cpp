@@ -51,7 +51,6 @@ String PeriodicActionTrigger::getConfig() {
 	JsonDocument doc;
 	// Assign current values
 	doc["Name"] = Description.name;
-	doc["taskName"] = task_config.taskName;
 	doc["taskPeriod"] = task_config.taskPeriod;
 	doc["taskEnabled"] = trigger_config.taskEnabled;
 
@@ -98,7 +97,7 @@ bool PeriodicActionTrigger::setConfig(String config, bool save) {
 	}
 	// Assign loaded values
 	Description.name = doc["Name"].as<String>();
-	task_config.taskName = doc["taskName"].as<std::string>();
+	task_config.taskName = Description.name.c_str();
 	task_config.taskPeriod = doc["taskPeriod"].as<ulong>();
 	trigger_config.payload = doc["Payload"].as<String>();
 	trigger_config.taskEnabled = doc["taskEnabled"].as<bool>();
