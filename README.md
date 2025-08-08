@@ -1,5 +1,5 @@
 # actor-PeriodicActionTrigger
-This is a utility actor that can tigger any other action on the device at regular intervals.
+This is a utility actor that can trigger any other action on the device at regular intervals.
 
 ## Constructor
 The constructor takes two parameters:
