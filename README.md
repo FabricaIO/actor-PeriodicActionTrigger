@@ -18,4 +18,4 @@ Once a device hub is set up, these are the configuration parameters that can be 
 * `taskPeriod`: An integer number of milliseconds for the period of how often the task runs (e.g. 1000 would be once a second)
 * `taskEnabled`: A checkbox to enable or disable the task
 * `Action`: A drop-down list of available actions to trigger each period, one can be selected
-* `Payload`: A string payload that is past to the action triggered. Refer to each actor's documentation to see what payloads are expected
+* `Payload`: A string payload that is passed to the action triggered. Refer to each actor's documentation to see what payloads are expected
