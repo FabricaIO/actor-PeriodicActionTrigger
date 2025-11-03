@@ -13,9 +13,8 @@ PeriodicActionTrigger::PeriodicActionTrigger(String Name, String configFile) : A
 /// @return True on success
 bool PeriodicActionTrigger::begin() {
 	// Set description
-	Description.actionQuantity = 1;
 	Description.type = "trigger";
-	Description.actions = {{"triggeraction", 0}};
+	Description.actions = {{"triggerAction", 0}};
 	trigger.actions_config.Enabled = true;
 	// Create settings directory if necessary
 	if (!checkConfig(config_path)) {
@@ -30,7 +29,7 @@ bool PeriodicActionTrigger::begin() {
 }
 
 /// @brief Receives an action
-/// @param action The action to process (only option is 0 for set output)
+/// @param action The action to process
 /// @param payload Any payload to be passed to the action
 /// @return JSON response with OK
 std::tuple<bool, String> PeriodicActionTrigger::receiveAction(int action, String payload) {
